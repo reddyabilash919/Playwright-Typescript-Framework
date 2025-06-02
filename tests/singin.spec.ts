@@ -1,17 +1,14 @@
 import { expect } from '@playwright/test';
 import { test } from '../fixtures/baseFixture';
 import {Config} from '../config/config';
+import { userData } from "../testData/userData";
 
 test.describe('Sign In Page Tests', () => {
 
-    test('Validate Sign In with valid credentials', async ({ page, signInPage }) => {
+    test('Validate sucessfull sign in with valid credentials', async ({ signInPage }) => {
         
-        await signInPage.navigateTo(Config.baseUrl);
-        await signInPage.clickOnSignInMenu();
-        await signInPage.enterEmail(Config.email);
-        await signInPage.enterPassword(Config.password);
-        await signInPage.clickOnSignInButton();
+        await signInPage.signIn(Config.email, Config.password);
         const actualUserName = await signInPage.getUserName();
-        expect(actualUserName).toContain('Abilash DJ');
+        expect(actualUserName).toContain(userData.expectedUserName);
     });
 });

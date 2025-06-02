@@ -31,4 +31,10 @@ export class ContactUsPage extends BasePage {
   async getSuccessMessage(): Promise<string> {
     return (await this.successMessage.textContent())?.trim() ?? '';
   }
+
+  async submitContactForm(subject: string, message: string) {
+    await this.selectSubjectHeading(subject);
+    await this.enterMessage(message);
+    await this.clickOnSendButton();
+  }
 }

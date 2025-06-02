@@ -1,6 +1,7 @@
 import { Locator, Page } from "playwright/test";
 import { BasePage } from "./BasePage";
 
+
 export class SignInPage extends BasePage {
     
   private readonly emailInput: Locator;
@@ -30,5 +31,11 @@ export class SignInPage extends BasePage {
 
   async getSignInPageTitle(): Promise<string> {
     return (await this.signInPageTitle.textContent())?.trim() ?? '';
+  }
+
+  async signIn(email: string, password: string) {
+    await this.enterEmail(email);
+    await this.enterPassword(password);
+    await this.clickOnSignInButton();
   }
 }
