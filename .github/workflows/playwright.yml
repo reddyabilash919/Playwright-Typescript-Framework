@@ -43,11 +43,4 @@ jobs:
           name: playwright-report
           path: playwright-report
 
-      - name: Publish Playwright Test Report
-        if: always()
-        uses: dorny/test-reporter@v1
-        with:
-          name: Playwright Test Report
-          path: playwright-report/report.json
-          reporter: playwright
-          token: ${{ secrets.GITHUB_TOKEN }}
+    
