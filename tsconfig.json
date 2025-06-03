@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "target": "ES2020",
+        "module": "commonjs",
+        "lib": ["ES2020", "DOM"],
+        "outDir": "dist",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true
+    },
+    "include": [
+    "tests/**/*.ts",                           /* Include all TypeScript files in the tests directory */
+    "pages/**/*.ts",                           /* Include all TypeScript files in the pages directory */
+    "utils/**/*.ts",                           /* Include all TypeScript files in the utils directory */
+    "fixtures/**/*.ts",                        /* Include all TypeScript files in the fixtures directory */
+    "config/**/*.ts",                          /* Include all TypeScript files in the config directory */
+    "testData/**/*.ts",                     /* Include all TypeScript files in the testData directory */
+    "playwright.config.ts" 
+    ],
+    "exclude": ["node_modules", "dist"]
+}

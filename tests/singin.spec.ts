@@ -5,7 +5,7 @@ import { userData } from "../testData/userData";
 
 test.describe('Sign In Page Tests', () => {
 
-    test('Validate sucessfull sign in with valid credentials', async ({ signInPage }) => {
+    test('Validate successful sign in with valid credentials', async ({ signInPage }) => {
         
         await signInPage.signIn(Config.email, Config.password);
         const actualUserName = await signInPage.getUserName();

@@ -7,8 +7,7 @@ import { contactUsFormData } from '../testData/contactsUsFormData';
 
 test.describe('Contact Us Page Tests', async() => {
 
-
-    test("Validate successfully contact us form submission", async({ contactUsPage, signInPage}) => {
+    test("Validate successful contact us form submission", async({ contactUsPage, signInPage}) => {
 
         await signInPage.signIn(Config.email, Config.password);
         const actualUserName = await signInPage.getUserName();
