@@ -17,15 +17,15 @@ export class SignInPage extends BasePage {
     this.signInPageTitle = page.locator('.page-subheading');
   }
 
-  async enterEmail(email: string) {
+  async enterEmail(email: string): Promise<void> {
     await this.emailInput.fill(email);
   }
 
-  async enterPassword(password: string) {
+  async enterPassword(password: string) : Promise<void> {
     await this.passwordInput.fill(password);
   }
 
-  async clickOnSignInButton() {
+  async clickOnSignInButton(): Promise<void> {
     await this.signInButton.click();
   }
 
@@ -33,9 +33,9 @@ export class SignInPage extends BasePage {
     return (await this.signInPageTitle.textContent())?.trim() ?? '';
   }
 
-  async signIn(email: string, password: string) {
-    await this.enterEmail(email);
-    await this.enterPassword(password);
-    await this.clickOnSignInButton();
+  async signIn(email: string, password: string): Promise<void> {
+    await this.emailInput.fill(email);
+    await this.passwordInput.fill(password);
+    await this.signInButton.click();
   }
 }

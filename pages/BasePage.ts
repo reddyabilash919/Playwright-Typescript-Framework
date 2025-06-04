@@ -18,20 +18,20 @@ export class BasePage {
         
     }
 
-    async navigateTo(url: string) {
+    async navigateTo(url: string) : Promise<void> {
         await this.page.goto(url);
     }
 
-    async clickOnSignInMenu(){
+    async clickOnSignInMenu(): Promise<void> {
        
         await this.signInMenuButton.click();
     }
 
-    async clickOnSignOutButton(){
+    async clickOnSignOutButton(): Promise<void> {
         await this.signOutButton.click();
     }
 
-    async clickOnContactUsMenu(){
+    async clickOnContactUsMenu(): Promise<void> {
         await this.contactUsMenuButton.click();
     }
 

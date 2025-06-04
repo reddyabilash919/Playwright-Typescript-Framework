@@ -2,16 +2,16 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-export const getEnv = (key: string): string => {
-  const value = process.env[key];
-  if (!value) {
-    throw new Error(`Missing environment variable: ${key}`);
+export class Config {
+  private static getEnv(key: string): string {
+    const value = process.env[key];
+    if (!value) {
+      throw new Error(`Missing environment variable: ${key}`);
+    }
+    return value;
   }
-  return value;
-};
 
-export const Config = {
-  baseUrl: getEnv("BASE_URL"),
-  email: getEnv("EMAIL_ADDRESS"),
-  password: getEnv("PASSWORD")
-};
+  static readonly baseUrl: string = Config.getEnv('BASE_URL');
+  static readonly email: string = Config.getEnv('EMAIL_ADDRESS');
+  static readonly password: string = Config.getEnv('PASSWORD');
+}

@@ -9,19 +9,19 @@ type MyFixtures ={
   signInPage : SignInPage
 }
 
-
-
 export const test = base.extend<MyFixtures>({
     
   contactUsPage: async ({ page }, use) => {
     const contactUsPage = new ContactUsPage(page);
     await use(contactUsPage);
+
   },
     signInPage: async ({ page }, use) => {
       const signInPage = new SignInPage(page);
       await signInPage.navigateTo(Config.baseUrl);
       await signInPage.clickOnSignInMenu();
       await use(signInPage);
+    
     }
 });
 

@@ -16,15 +16,15 @@ export class ContactUsPage extends BasePage {
     this.successMessage = page.locator('.alert.alert-success');
   }
 
-  async selectSubjectHeading(subject: string) {
+  async selectSubjectHeading(subject: string): Promise<void> {
     await this.subjectHeadingDropdown.selectOption(subject);
   }
 
-  async enterMessage(message: string) {
+  async enterMessage(message: string): Promise<void> {
     await this.messageField.fill(message);
   }
 
-  async clickOnSendButton() {
+  async clickOnSendButton() : Promise<void> {
     await this.sendButton.click();
   }
 
@@ -32,7 +32,7 @@ export class ContactUsPage extends BasePage {
     return (await this.successMessage.textContent())?.trim() ?? '';
   }
 
-  async submitContactForm(subject: string, message: string) {
+  async submitContactForm(subject: string, message: string): Promise<void> {
     await this.selectSubjectHeading(subject);
     await this.enterMessage(message);
     await this.clickOnSendButton();
