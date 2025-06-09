@@ -13,7 +13,7 @@ export class ContactUsPage extends BasePage {
     this.subjectHeadingDropdown = page.locator('#id_contact');
     this.messageField = page.locator('#message');
     this.sendButton = page.locator('#submitMessage');
-    this.successMessage = page.locator('.alert.alert-success');
+    this.successMessage = page.locator('.alert.alert-success1');
   }
 
   async selectSubjectHeading(subject: string): Promise<void> {
